@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Escape The Digital Abyss 
-// @namespace    http://tampermonkey.net/
-// @version      0.1
+// @namespace    https://mrbhanukab.github.io/EscapeTheDigitalAbyss/
+// @version      1.0
 // @description  Encourages users to reconsider spending their time on time-wasting websites.
-// @author       Mr.Bhanuka
+// @author       Bhanuka Bandara
 // @match        https://*.youtube.com/*
 // @match        https://twitter.com/*
 // @match        https://x.com/*
