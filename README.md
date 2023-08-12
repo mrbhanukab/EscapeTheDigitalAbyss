@@ -27,7 +27,7 @@ Installing **Escape The Digital Abyss** is straightforward. Just follow these **
 [Install Escape The Digital Abyss](https://github.com/mrbhanukab/EscapeTheDigitalAbyss/raw/main/EscapeTheDigitalAbyss.user.js)
 
 ### Video Walkthrough
-
+This is a video recorded for "ZoomSave 3", all the steps are the same.
 ![Video Walkthrough, Loading ...](https://github.com/mrbhanukab/ZoomSave/blob/main/assets/install.gif?raw=true)
 
 
