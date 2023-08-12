@@ -4,6 +4,8 @@
 // @version      1.0
 // @description  Encourages users to reconsider spending their time on time-wasting websites.
 // @author       Bhanuka Bandara
+// @icon         https://img.icons8.com/ios-filled/500/000000/clock--v3.png
+// @supportURL   https://github.com/mrbhanukab/EscapeTheDigitalAbyss
 // @match        https://*.youtube.com/*
 // @match        https://twitter.com/*
 // @match        https://x.com/*
