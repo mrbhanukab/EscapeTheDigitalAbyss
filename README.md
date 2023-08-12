@@ -24,7 +24,7 @@ Installing **Escape The Digital Abyss** is straightforward. Just follow these **
      
 2. After installing Tampermonkey, click on the "Install" button below to add **Escape The Digital Abyss**:
 
-[Install Escape The Digital Abyss](https://github.com/mrbhanukab/EscapeTheDigitalAbyss/raw/main/EscapeTheDigitalAbyss.user.js)
+[Install Escape The Digital Abyss](https://github.com/mrbhanukab/EscapeTheDigitalAbyss/raw/main/UserScript.user.js)
 
 ### Video Walkthrough
 This is a video recorded for "ZoomSave 3", all the steps are the same.
