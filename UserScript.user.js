@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Escape The Digital Abyss 
+// @name         Escape The Digital Abyss
 // @namespace    https://mrbhanukab.github.io/EscapeTheDigitalAbyss/
-// @version      1.0
+// @version      2.0
 // @description  Encourages users to reconsider spending their time on time-wasting websites.
 // @author       Bhanuka Bandara
 // @icon         https://img.icons8.com/ios-filled/500/000000/clock--v3.png
@@ -19,38 +19,73 @@
 (function() {
     'use strict';
 
-    let promptCount = 0;
-    const maxPrompts = 5;
+    const contentDiv = document.getElementById('content');
+    contentDiv.style.display = 'none';
 
-    function showWarning() {
-        const strongMessageSites = ["youtube.com", "tiktok.com", "facebook.com", "instagram.com"];
-        const isStrongMessageSite = strongMessageSites.some(site => window.location.hostname.includes(site));
+        // Create a div element for containing the elements
+    const containerDiv = document.createElement('div');
+    containerDiv.style.color = 'var(--text-primary-color)';
+    containerDiv.style.zIndex = '1000';
+    containerDiv.style.position = 'absolute';
+    containerDiv.style.display = 'flex';
+    containerDiv.style.flexDirection = 'column';
+    containerDiv.style.height = '100vh';
+    containerDiv.style.width = '100vw';
+    containerDiv.style.justifyContent = 'center';
+    containerDiv.style.alignItems = 'center';
+    containerDiv.style.gap = '2rem';
+    containerDiv.style.background = 'var(--default-primary-color)';
+    document.body.insertBefore(containerDiv, document.body.firstChild);
 
-        // Check for YouTube, TikTok, Facebook, and Instagram.
-        if (isStrongMessageSite && (window.location.pathname === '/' || window.location.pathname.startsWith('/user/'))) {
-            if (confirm("Hey mother fucker, what you doing man? Are You Crazy to waste your fucking time watching videos of bunch of idiots talking nonsense or watching half-naked poor women dance in front of a camera? Fucking Hell, click OK to get out of here.")) {
-                window.location.href = "https://duckduckgo.com";
-                return; // Exit the function to prevent further prompts
-            }
-        }
-        // Check other sites
-        else if (window.location.hostname.includes("twitter.com") ||
-                 window.location.hostname.includes("x.com") ||
-                 window.location.hostname.includes("rumble.com")) {
-            if (confirm("Remember not to waste your time! Do you really want to continue browsing?")) {
-                window.location.href = "https://duckduckgo.com";
-                return; // Exit the function to prevent further prompts
-            }
-        }
+    // Create elements to be shown to the user inside the container div
+    const h1 = document.createElement('h1');
+    h1.textContent = 'Escape The Digital Abyss';
+    h1.style.fontSize = '300%';
+    containerDiv.appendChild(h1);
 
-        promptCount++;
+    const p = document.createElement('p');
+    p.textContent = "Don't waste time here, friend! Let's do something better instead! Are you here for something useful? Alright, take control. But remember, as soon as your work is complete, leave this place. It can be dangerous to linger.";
+    p.style.width = '75%';
+    p.style.fontSize = '150%';
+    containerDiv.appendChild(p);
 
-        // If user has been prompted 5 times, stop showing the dialog
-        if (promptCount >= maxPrompts) {
-            clearInterval(intervalID);
-        }
+    // Create a button element named "Take Control"
+    const takeControlButton = document.createElement('button');
+    takeControlButton.setAttribute('aria-label', 'Take Control (Not Recommended)');
+    takeControlButton.setAttribute('title', '');
+    takeControlButton.style.position = 'relative';
+    takeControlButton.style.overflow = 'hidden';
+    takeControlButton.style.cursor = 'pointer';
+    takeControlButton.style.outline = 'none';
+    takeControlButton.style.border = 'none';
+    takeControlButton.style.borderRadius = '2px';
+    takeControlButton.style.backgroundColor = 'var(--yt-spec-error-indicator)';
+    takeControlButton.style.color = 'var(--yt-spec-text-primary)';
+    takeControlButton.style.textTransform = 'none';
+    takeControlButton.style.fontWeight = '500';
+    takeControlButton.style.fontSize = '14px';
+    takeControlButton.style.lineHeight = '36px';
+    takeControlButton.style.padding = '0px 16px';
+    takeControlButton.style.marginTop = '1rem';
+    takeControlButton.style.boxShadow = 'none';
+    takeControlButton.style.transition = 'background-color 0.2s, box-shadow 0.2s';
+    takeControlButton.innerHTML = '<span class="yt-core-attributed-string yt-core-attributed-string--white-space-no-wrap" role="text">Take Control (Not Recommended)</span>';
+    containerDiv.appendChild(takeControlButton);
+
+    // Function to handle button click
+    function handleClick() {
+        // Remove the CSS rule to display all elements
+        contentDiv.style.display = 'inline';
+
+        // Remove the elements shown to the user
+        containerDiv.removeChild(h1);
+        containerDiv.removeChild(p);
+        containerDiv.removeChild(takeControlButton);
+        document.body.removeChild(containerDiv);
+        // Stop showing the warning interval
+        //clearInterval(intervalID);
     }
 
-    // Start the interval to show the warning every 5 seconds
-    const intervalID = setInterval(showWarning, 5000);
+    // Add event listener to the button
+    takeControlButton.addEventListener('click', handleClick);
 })();
