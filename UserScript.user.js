@@ -19,12 +19,18 @@
 (function() {
     'use strict';
 
-    const contentDiv = document.getElementById('content');
+    // Define contentDiv based on the website version
+    let contentDiv;
+    if (window.location.hostname === 'm.youtube.com') {
+        contentDiv = document.getElementById('app');
+    } else {
+        contentDiv = document.getElementById('content');
+    }
     contentDiv.style.display = 'none';
 
         // Create a div element for containing the elements
     const containerDiv = document.createElement('div');
-    containerDiv.style.color = 'var(--text-primary-color)';
+    containerDiv.style.color = '#fff';
     containerDiv.style.zIndex = '1000';
     containerDiv.style.position = 'absolute';
     containerDiv.style.display = 'flex';
@@ -34,19 +40,18 @@
     containerDiv.style.justifyContent = 'center';
     containerDiv.style.alignItems = 'center';
     containerDiv.style.gap = '2rem';
-    containerDiv.style.background = 'var(--default-primary-color)';
+    containerDiv.style.background = '#3f51b5';
     document.body.insertBefore(containerDiv, document.body.firstChild);
 
     // Create elements to be shown to the user inside the container div
     const h1 = document.createElement('h1');
     h1.textContent = 'Escape The Digital Abyss';
-    h1.style.fontSize = '300%';
     containerDiv.appendChild(h1);
 
     const p = document.createElement('p');
     p.textContent = "Don't waste time here, friend! Let's do something better instead! Are you here for something useful? Alright, take control. But remember, as soon as your work is complete, leave this place. It can be dangerous to linger.";
     p.style.width = '75%';
-    p.style.fontSize = '150%';
+    p.style.textAlign = "center";
     containerDiv.appendChild(p);
 
     // Create a button element named "Take Control"
@@ -59,8 +64,7 @@
     takeControlButton.style.outline = 'none';
     takeControlButton.style.border = 'none';
     takeControlButton.style.borderRadius = '2px';
-    takeControlButton.style.backgroundColor = 'var(--yt-spec-error-indicator)';
-    takeControlButton.style.color = 'var(--yt-spec-text-primary)';
+    takeControlButton.style.backgroundColor = '#ff8983';
     takeControlButton.style.textTransform = 'none';
     takeControlButton.style.fontWeight = '500';
     takeControlButton.style.fontSize = '14px';
