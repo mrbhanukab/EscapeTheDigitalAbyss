@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Escape The Digital Abyss
 // @namespace    https://mrbhanukab.github.io/EscapeTheDigitalAbyss/
-// @version      2.0
+// @version      2.1
 // @description  Encourages users to reconsider spending their time on time-wasting websites.
 // @author       Bhanuka Bandara
 // @icon         https://img.icons8.com/ios-filled/500/000000/clock--v3.png
